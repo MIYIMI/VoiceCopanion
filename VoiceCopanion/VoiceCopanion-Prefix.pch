@@ -30,6 +30,7 @@
 /**
  *  字号设置
  */
+#define LMH_FONT_50             [UIFont systemFontOfSize:50]
 #define LMH_FONT_20             [UIFont systemFontOfSize:20]
 #define LMH_FONT_19             [UIFont systemFontOfSize:19]
 #define LMH_FONT_18             [UIFont systemFontOfSize:18]

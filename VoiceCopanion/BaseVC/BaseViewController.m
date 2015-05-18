@@ -37,6 +37,7 @@
     vFrame.size.height = navHiden?SCRH:SCRH-NAVHEIGHT;
     vFrame.size.height = tabHiden?vFrame.size.height:vFrame.size.height-TABHEIGHT;
     self.view.frame = vFrame;
+    self.view.backgroundColor = [UIColor whiteColor];
     
     //设置边缘不延伸至导航栏下
     if (IOS_7){
