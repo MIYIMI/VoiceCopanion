@@ -14,6 +14,18 @@
 
 @end
 
+@protocol NavigationContrllerDelegate <NSObject>
+
+@optional
+- (void)leftBarItemClick;
+
+@end
+
 @interface NavigationContrller : UINavigationController
+
+//- (void)leftBarItemClick;
+- (void)addLeftBarItem;
+
+@property(nonatomic,strong)id <NavigationContrllerDelegate>navDelegate;
 
 @end

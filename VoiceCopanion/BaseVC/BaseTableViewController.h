@@ -13,4 +13,7 @@
 
 -(id)initWithStyle:(UITableViewStyle)style;
 
+@property(nonatomic,strong)UITableView *tableview;
+@property(nonatomic,assign)BOOL edgeInsetsZero;
+
 @end

@@ -55,10 +55,10 @@ typedef void (^APTransitionBlock)(void);
 - (UIBarButtonItem *)createBackBarButonItem
 {
     UIButton * backBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 27)];
-    [backBarButton setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
-    [backBarButton setImage:[UIImage imageNamed:@"return"] forState:UIControlStateHighlighted];
+    [backBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+    [backBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateHighlighted];
     
-    [backBarButton addTarget:self action:@selector(popSelf) forControlEvents:UIControlEventTouchUpInside];
+    [backBarButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchUpInside];
     
     UIBarButtonItem * backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBarButton];
     backBarButtonItem.style = UIBarButtonItemStylePlain;
@@ -66,35 +66,19 @@ typedef void (^APTransitionBlock)(void);
     return backBarButtonItem;
 }
 
+- (void)addLeftBarItem{
+    UINavigationItem * navItem = self.topViewController.navigationItem;
+    [navItem setLeftBarButtonItem:[self createBackBarButonItem] animated:YES];
+}
+
 #pragma mark - 自定义返回按钮
 /**
  *  返回按钮触发事件
  */
-- (void)popSelf
-{
-//    if (_ifPaySucess) {
-//        NSArray *vcArray = [self childViewControllers];
-//        UIViewController *vc = vcArray[vcArray.count-3];
-//        [self popToViewController:vc animated:YES];
-//        _ifPaySucess = NO;
-//        return;
-//    }
-//    if (_ifPopToOrderView) {
-//        kata_AllOrderListViewController *orderListVC = [[kata_AllOrderListViewController alloc] initWithOrderType:@"nopay"];
-//        orderListVC.navigationController = self;
-//        self.ifPopToOrderView = NO;
-//        _ifPopToRootView = YES;
-//        orderListVC.hidesBottomBarWhenPushed = YES;
-//        [self pushViewController:orderListVC animated:YES];
-//        
-//        return;
-//    }
-//    if (_ifPopToRootView) {
-//        _ifPopToRootView = NO;
-//        [self popToRootViewControllerAnimated:YES];
-//    } else {
-//        [self popViewControllerAnimated:YES];
-//    }
+- (void)leftBarItemClick{
+    if ([self.navDelegate respondsToSelector:@selector(leftBarItemClick)]) {
+        [self.navDelegate leftBarItemClick];
+    }
 }
 
 
@@ -115,7 +99,6 @@ typedef void (^APTransitionBlock)(void);
         }];
     }
 }
-
 
 #pragma mark - 返回视图
 /**

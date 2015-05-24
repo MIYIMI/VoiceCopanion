@@ -17,9 +17,18 @@
 		B9E19EE71AFF836900E2F43B /* NavigationContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E19EE21AFF836900E2F43B /* NavigationContrller.m */; };
 		B9E19EE81AFF836900E2F43B /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E19EE41AFF836900E2F43B /* TabBarController.m */; };
 		B9E19F131AFF8A8C00E2F43B /* UIViewController+APSafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E19F121AFF8A8C00E2F43B /* UIViewController+APSafeTransition.m */; };
-		B9E19F161AFFA12600E2F43B /* Voice_FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E19F151AFFA12600E2F43B /* Voice_FirstViewController.m */; };
 		B9E19F1B1AFFAEA900E2F43B /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E19F191AFFAEA900E2F43B /* phone.png */; };
 		B9E19F1C1AFFAEA900E2F43B /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B9E19F1A1AFFAEA900E2F43B /* phone@2x.png */; };
+		B9E4FC071B0E3475002BE7D8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E4FC061B0E3475002BE7D8 /* AddressBook.framework */; };
+		B9E4FC091B0E34C1002BE7D8 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E4FC081B0E34C1002BE7D8 /* AddressBookUI.framework */; };
+		B9E4FC0C1B0E3531002BE7D8 /* Voice_SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E4FC0B1B0E3531002BE7D8 /* Voice_SecondViewController.m */; };
+		B9E4FC101B1197AE002BE7D8 /* THContact.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E4FC0F1B1197AE002BE7D8 /* THContact.m */; };
+		B9E4FC121B1197F4002BE7D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E4FC111B1197F4002BE7D8 /* Foundation.framework */; };
+		B9E4FC161B119819002BE7D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E4FC151B119819002BE7D8 /* UIKit.framework */; };
+		B9E4FC1D1B11B8ED002BE7D8 /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E4FC1A1B11B8ED002BE7D8 /* ChineseString.m */; };
+		B9E4FC1E1B11B8ED002BE7D8 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = B9E4FC1B1B11B8ED002BE7D8 /* pinyin.c */; };
+		B9E4FC231B121AE9002BE7D8 /* Voice_FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E4FC221B121AE9002BE7D8 /* Voice_FirstViewController.m */; };
+		B9E4FC261B121B06002BE7D8 /* Voice_LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E4FC251B121B06002BE7D8 /* Voice_LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,10 +63,25 @@
 		B9E19F0E1AFF875900E2F43B /* VoiceCopanion-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VoiceCopanion-Prefix.pch"; sourceTree = "<group>"; };
 		B9E19F111AFF8A8C00E2F43B /* UIViewController+APSafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+APSafeTransition.h"; sourceTree = "<group>"; };
 		B9E19F121AFF8A8C00E2F43B /* UIViewController+APSafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+APSafeTransition.m"; sourceTree = "<group>"; };
-		B9E19F141AFFA12600E2F43B /* Voice_FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Voice_FirstViewController.h; path = FisrtVC/Voice_FirstViewController.h; sourceTree = "<group>"; };
-		B9E19F151AFFA12600E2F43B /* Voice_FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Voice_FirstViewController.m; path = FisrtVC/Voice_FirstViewController.m; sourceTree = "<group>"; };
 		B9E19F191AFFAEA900E2F43B /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		B9E19F1A1AFFAEA900E2F43B /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
+		B9E4FC061B0E3475002BE7D8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B9E4FC081B0E34C1002BE7D8 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		B9E4FC0A1B0E3531002BE7D8 /* Voice_SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voice_SecondViewController.h; sourceTree = "<group>"; };
+		B9E4FC0B1B0E3531002BE7D8 /* Voice_SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voice_SecondViewController.m; sourceTree = "<group>"; };
+		B9E4FC0E1B1197AE002BE7D8 /* THContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THContact.h; path = Model/THContact.h; sourceTree = "<group>"; };
+		B9E4FC0F1B1197AE002BE7D8 /* THContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THContact.m; path = Model/THContact.m; sourceTree = "<group>"; };
+		B9E4FC111B1197F4002BE7D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B9E4FC131B1197FD002BE7D8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B9E4FC151B119819002BE7D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B9E4FC191B11B8ED002BE7D8 /* ChineseString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseString.h; sourceTree = "<group>"; };
+		B9E4FC1A1B11B8ED002BE7D8 /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
+		B9E4FC1B1B11B8ED002BE7D8 /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		B9E4FC1C1B11B8ED002BE7D8 /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		B9E4FC211B121AE9002BE7D8 /* Voice_FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Voice_FirstViewController.h; path = NormalVC/Voice_FirstViewController.h; sourceTree = "<group>"; };
+		B9E4FC221B121AE9002BE7D8 /* Voice_FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Voice_FirstViewController.m; path = NormalVC/Voice_FirstViewController.m; sourceTree = "<group>"; };
+		B9E4FC241B121B06002BE7D8 /* Voice_LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voice_LoginViewController.h; sourceTree = "<group>"; };
+		B9E4FC251B121B06002BE7D8 /* Voice_LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voice_LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E4FC161B119819002BE7D8 /* UIKit.framework in Frameworks */,
+				B9E4FC121B1197F4002BE7D8 /* Foundation.framework in Frameworks */,
+				B9E4FC091B0E34C1002BE7D8 /* AddressBookUI.framework in Frameworks */,
+				B9E4FC071B0E3475002BE7D8 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +109,11 @@
 		B9E19EA81AFF829F00E2F43B = {
 			isa = PBXGroup;
 			children = (
+				B9E4FC151B119819002BE7D8 /* UIKit.framework */,
+				B9E4FC131B1197FD002BE7D8 /* QuartzCore.framework */,
+				B9E4FC111B1197F4002BE7D8 /* Foundation.framework */,
+				B9E4FC081B0E34C1002BE7D8 /* AddressBookUI.framework */,
+				B9E4FC061B0E3475002BE7D8 /* AddressBook.framework */,
 				B9E19EB31AFF829F00E2F43B /* VoiceCopanion */,
 				B9E19ECD1AFF829F00E2F43B /* VoiceCopanionTests */,
 				B9E19EB21AFF829F00E2F43B /* Products */,
@@ -99,6 +132,8 @@
 		B9E19EB31AFF829F00E2F43B /* VoiceCopanion */ = {
 			isa = PBXGroup;
 			children = (
+				B9E19F171AFFA18F00E2F43B /* NormalVC */,
+				B9E4FC0D1B119763002BE7D8 /* Model */,
 				B9E19F181AFFAEA900E2F43B /* Resources */,
 				B9E19F0F1AFF8A6200E2F43B /* ThreeFrameWork */,
 				B9E19EDC1AFF836900E2F43B /* BaseVC */,
@@ -108,7 +143,6 @@
 				B9E19EC31AFF829F00E2F43B /* LaunchScreen.xib */,
 				B9E19EB41AFF829F00E2F43B /* Supporting Files */,
 				B9E19F0E1AFF875900E2F43B /* VoiceCopanion-Prefix.pch */,
-				B9E19F171AFFA18F00E2F43B /* FirstVC */,
 			);
 			path = VoiceCopanion;
 			sourceTree = "<group>";
@@ -157,6 +191,7 @@
 		B9E19F0F1AFF8A6200E2F43B /* ThreeFrameWork */ = {
 			isa = PBXGroup;
 			children = (
+				B9E4FC181B11B8ED002BE7D8 /* PinYin */,
 				B9E19F101AFF8A8C00E2F43B /* SafeTransition */,
 			);
 			path = ThreeFrameWork;
@@ -171,13 +206,17 @@
 			path = SafeTransition;
 			sourceTree = "<group>";
 		};
-		B9E19F171AFFA18F00E2F43B /* FirstVC */ = {
+		B9E19F171AFFA18F00E2F43B /* NormalVC */ = {
 			isa = PBXGroup;
 			children = (
-				B9E19F141AFFA12600E2F43B /* Voice_FirstViewController.h */,
-				B9E19F151AFFA12600E2F43B /* Voice_FirstViewController.m */,
+				B9E4FC211B121AE9002BE7D8 /* Voice_FirstViewController.h */,
+				B9E4FC221B121AE9002BE7D8 /* Voice_FirstViewController.m */,
+				B9E4FC0A1B0E3531002BE7D8 /* Voice_SecondViewController.h */,
+				B9E4FC0B1B0E3531002BE7D8 /* Voice_SecondViewController.m */,
+				B9E4FC241B121B06002BE7D8 /* Voice_LoginViewController.h */,
+				B9E4FC251B121B06002BE7D8 /* Voice_LoginViewController.m */,
 			);
-			name = FirstVC;
+			name = NormalVC;
 			sourceTree = "<group>";
 		};
 		B9E19F181AFFAEA900E2F43B /* Resources */ = {
@@ -187,6 +226,26 @@
 				B9E19F1A1AFFAEA900E2F43B /* phone@2x.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B9E4FC0D1B119763002BE7D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B9E4FC0E1B1197AE002BE7D8 /* THContact.h */,
+				B9E4FC0F1B1197AE002BE7D8 /* THContact.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B9E4FC181B11B8ED002BE7D8 /* PinYin */ = {
+			isa = PBXGroup;
+			children = (
+				B9E4FC191B11B8ED002BE7D8 /* ChineseString.h */,
+				B9E4FC1A1B11B8ED002BE7D8 /* ChineseString.m */,
+				B9E4FC1B1B11B8ED002BE7D8 /* pinyin.c */,
+				B9E4FC1C1B11B8ED002BE7D8 /* pinyin.h */,
+			);
+			path = PinYin;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,14 +350,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9E4FC1E1B11B8ED002BE7D8 /* pinyin.c in Sources */,
+				B9E4FC0C1B0E3531002BE7D8 /* Voice_SecondViewController.m in Sources */,
 				B9E19F131AFF8A8C00E2F43B /* UIViewController+APSafeTransition.m in Sources */,
+				B9E4FC101B1197AE002BE7D8 /* THContact.m in Sources */,
 				B9E19EE71AFF836900E2F43B /* NavigationContrller.m in Sources */,
-				B9E19F161AFFA12600E2F43B /* Voice_FirstViewController.m in Sources */,
 				B9E19EE61AFF836900E2F43B /* BaseViewController.m in Sources */,
+				B9E4FC231B121AE9002BE7D8 /* Voice_FirstViewController.m in Sources */,
 				B9E19EBA1AFF829F00E2F43B /* AppDelegate.m in Sources */,
 				B9E19EE51AFF836900E2F43B /* BaseTableViewController.m in Sources */,
 				B9E19EE81AFF836900E2F43B /* TabBarController.m in Sources */,
 				B9E19EB71AFF829F00E2F43B /* main.m in Sources */,
+				B9E4FC261B121B06002BE7D8 /* Voice_LoginViewController.m in Sources */,
+				B9E4FC1D1B11B8ED002BE7D8 /* ChineseString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +480,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "/Users/miyimi/Desktop/VoiceCopanion/VoiceCopanion/VoiceCopanion-Prefix.pch";
 				INFOPLIST_FILE = VoiceCopanion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -430,6 +495,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "/Users/miyimi/Desktop/VoiceCopanion/VoiceCopanion/VoiceCopanion-Prefix.pch";
 				INFOPLIST_FILE = VoiceCopanion/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

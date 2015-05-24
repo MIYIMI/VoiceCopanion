@@ -9,8 +9,11 @@
 #import "TabBarController.h"
 #import "NavigationContrller.h"
 #import "Voice_FirstViewController.h"
+#import "Voice_SecondViewController.h"
+#import "Voice_LoginViewController.h"
 
-@interface TabBarController (){
+@interface TabBarController ()<UITabBarControllerDelegate,LoginDelegate>
+{
     NSMutableArray *tabArray;
 }
 
@@ -21,13 +24,12 @@
 - (id)init{
     self = [super init];
     if (self) {
-        //创建首页视图
-        Voice_FirstViewController *firstVC = [[Voice_FirstViewController alloc] initWithNibName:nil bundle:nil];
+        Voice_FirstViewController *firstVC = [[Voice_FirstViewController alloc] initWithStyle:UITableViewStylePlain];
         NavigationContrller *firstNav = [[NavigationContrller alloc] initWithRootViewController:firstVC];
         firstVC.navigationController = firstNav;
         firstVC.tabHiden = NO;
         
-        Voice_FirstViewController *secondVC = [[Voice_FirstViewController alloc] initWithNibName:nil bundle:nil];
+        Voice_SecondViewController *secondVC = [[Voice_SecondViewController alloc] initWithStyle:UITableViewStylePlain];
         NavigationContrller *secondNav = [[NavigationContrller alloc] initWithRootViewController:secondVC];
         secondVC.navigationController = secondNav;
         secondVC.tabHiden = NO;
@@ -69,6 +71,7 @@
  */
 - (void)initTabBarItem{
     UITabBar *tabBar = self.tabBar;
+    self.delegate = self;
     
     //TabBar的文字
     NSArray *titleArray = [NSArray arrayWithObjects:@"拨号", @"联系人", @"设置", nil];
@@ -96,6 +99,22 @@
         barImage = [LOAD_LOCALIMG(imgStr) imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         unitItem.selectedImage = barImage;
     }
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    if (tabBarController.selectedIndex == 2) {
+        NSLog(@"select");
+        [Voice_LoginViewController showInViewController:self];
+    }
+}
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    
+    return YES;
+}
+
+- (void)didLogin{
+    self.tabBarController.selectedIndex = 2;
 }
 
 @end

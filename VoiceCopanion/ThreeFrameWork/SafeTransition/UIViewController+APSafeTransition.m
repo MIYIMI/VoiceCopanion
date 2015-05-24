@@ -46,7 +46,10 @@
 
 - (void)sofaViewDidAppear:(BOOL)animated
 {
-    self.navigationController.transitionInProgress = NO;
+    if ([self.navigationController respondsToSelector:@selector(setTransitionInProgress:)]) {
+        self.navigationController.transitionInProgress = NO;
+    }
+    
     [self sofaViewDidAppear:animated];
 }
 

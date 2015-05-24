@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 米翊米. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface Voice_FirstViewController : BaseViewController
+@interface Voice_FirstViewController :BaseTableViewController
 
 @end
