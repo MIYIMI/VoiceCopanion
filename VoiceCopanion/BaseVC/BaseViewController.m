@@ -9,7 +9,10 @@
 #import "BaseViewController.h"
 #import "UIViewController+APSafeTransition.h"
 
-@interface BaseViewController ()
+@interface BaseViewController ()<MBProgressHUDDelegate>
+{
+    MBProgressHUD *stateHud;
+}
 
 @end
 
@@ -56,6 +59,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)textStateHUD:(NSString *)text
+{
+    if (!stateHud) {
+        stateHud = [[MBProgressHUD alloc] initWithView:self.view];
+        stateHud.delegate = self;
+        [self.view addSubview:stateHud];
+    }
+    stateHud.mode = MBProgressHUDModeText;
+    stateHud.detailsLabelText = text;
+    stateHud.detailsLabelFont = LMH_FONT_13;
+    [stateHud show:YES];
+    [stateHud hide:YES afterDelay:1.5];
 }
 
 @end

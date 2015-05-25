@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "NavigationContrller.h"
+#import <MBProgressHUD.h>
 
 @interface BaseViewController : UIViewController
 
 @property(nonatomic,strong) NavigationContrller *navigationController;
 @property(nonatomic) BOOL navHiden;
 @property(nonatomic) BOOL tabHiden;
+
+- (void)textStateHUD:(NSString *)text;
 
 @end

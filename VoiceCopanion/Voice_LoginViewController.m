@@ -9,6 +9,10 @@
 #import "Voice_LoginViewController.h"
 
 @interface Voice_LoginViewController ()<NavigationContrllerDelegate>
+{
+    UITextField *aField;
+    UITextField *pField;
+}
 
 @end
 
@@ -38,8 +42,10 @@
     // Do any additional setup after loading the view.
     
     self.title = @"登录";
-    self.navigationController.navDelegate = self;
     
+    [self createUI];
+    
+    self.navigationController.navDelegate = self;
     [self.navigationController addLeftBarItem];
 }
 
@@ -53,35 +59,94 @@
 }
 
 - (void)createUI{
-    UIImageView *aImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCRW/8, 40, 20, 20)];
+    CGFloat frameH = 30.0;
+    
+    UIImageView *aImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCRW/8, 40, frameH, frameH)];
     aImgView.image = LOAD_LOCALIMG(@"phone");
     [self.view addSubview:aImgView];
     
-    UILabel *aLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(aImgView.frame), CGRectGetMinY(aImgView.frame), 60, 20)];
+    UILabel *aLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(aImgView.frame)+2, CGRectGetMinY(aImgView.frame), 75, frameH)];
     aLabel.font = LMH_FONT_18;
-    aLabel.textColor = LMH_COLOR_GRAYTEXT;
+    aLabel.textColor = LMH_COLOR_LGTGRAYTEXT;
     aLabel.text = @"手机号：";
     [self.view addSubview:aLabel];
     
-    UITextField *aField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxY(aLabel.frame), CGRectGetMaxY(aLabel.frame), SCRW - CGRectGetMaxX(aLabel.frame)-10, 20)];
+    aField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(aLabel.frame), CGRectGetMinY(aLabel.frame), SCRW - CGRectGetMaxX(aLabel.frame)-SCRW/8, frameH)];
     aField.font = LMH_FONT_18;
-    aField.textColor = LMH_COLOR_GRAYTEXT;
+    aField.layer.borderWidth = 0.5;
+    aField.layer.borderColor = LMH_COLOR_LINE.CGColor;
+    aField.textColor = LMH_COLOR_LGTGRAYTEXT;
     [self.view addSubview:aField];
     
-    UIImageView *pImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCRW/8, CGRectGetMaxY(aLabel.frame)+20, 20, 20)];
+    UIImageView *pImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCRW/8, CGRectGetMaxY(aLabel.frame)+20, frameH, frameH)];
     pImgView.image = LOAD_LOCALIMG(@"phone");
     [self.view addSubview:pImgView];
     
-    UILabel *pLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(pImgView.frame), CGRectGetMinY(pImgView.frame), 60, 20)];
+    UILabel *pLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(pImgView.frame)+2, CGRectGetMinY(pImgView.frame), 75, frameH)];
     pLabel.font = LMH_FONT_18;
-    pLabel.textColor = LMH_COLOR_GRAYTEXT;
-    pLabel.text = @"密  码：";
+    pLabel.textColor = LMH_COLOR_LGTGRAYTEXT;
+    pLabel.text = @"密   码：";
     [self.view addSubview:pLabel];
     
-    UITextField *pField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxY(pLabel.frame), CGRectGetMaxY(pLabel.frame), SCRW - CGRectGetMaxX(pLabel.frame)-10, 20)];
+    pField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(pLabel.frame), CGRectGetMinY(pLabel.frame), SCRW - CGRectGetMaxX(pLabel.frame)-SCRW/8, frameH)];
     pField.font = LMH_FONT_18;
-    pField.textColor = LMH_COLOR_GRAYTEXT;
+    pField.layer.borderWidth = 0.5;
+    pField.layer.borderColor = LMH_COLOR_LINE.CGColor;
+    pField.textColor = LMH_COLOR_LGTGRAYTEXT;
     [self.view addSubview:pField];
+    
+    UIButton *imgBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCRW/8, CGRectGetMaxY(pImgView.frame)+40, frameH, frameH)];
+    [imgBtn setTitle:@"N" forState:UIControlStateNormal];
+    [imgBtn setTitle:@"S" forState:UIControlStateSelected];
+    [imgBtn setTitleColor:LMH_COLOR_SKIN forState:UIControlStateNormal];
+    [imgBtn setTitleColor:LMH_COLOR_ORANGE forState:UIControlStateSelected];
+    [imgBtn addTarget:self action:@selector(imgBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:imgBtn];
+    
+    UILabel *rLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imgBtn.frame)+5, CGRectGetMinY(imgBtn.frame), 80, frameH)];
+    rLabel.font = LMH_FONT_16;
+    rLabel.textColor = LMH_COLOR_GRAYTEXT;
+    rLabel.text = @"记住密码";
+    [self.view addSubview:rLabel];
+    
+    UIButton *findBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCRW-SCRW/8-80, CGRectGetMinY(imgBtn.frame), 80, frameH)];
+    [findBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+    [findBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [findBtn.titleLabel setFont:LMH_FONT_16];
+    findBtn.layer.cornerRadius = 3.0;
+    [findBtn setBackgroundColor:LMH_COLOR_ORANGE];
+    [self.view addSubview:findBtn];
+    
+    UIButton *loginBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCRW/16, CGRectGetMaxY(findBtn.frame)+10, SCRW/8*7, 40)];
+    [loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [loginBtn setTitle:@"登   录" forState:UIControlStateNormal];
+    [loginBtn.titleLabel setFont:LMH_FONT_20];
+    [loginBtn setBackgroundColor:[UIColor greenColor]];
+    loginBtn.layer.cornerRadius = 3.0;
+    [loginBtn addTarget:self action:@selector(loginClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginBtn];
+}
+
+- (void)imgBtnClick:(UIButton *)sender{
+    sender.selected = !sender.selected;
+}
+
+- (void)loginClick{
+    NSString *telephoneRegex = @"^((13[0-9])|(147)|(15[^4,\\D])|(18[0-9]))\\d{8}$";
+    NSPredicate *telephoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", telephoneRegex];
+    
+    if (![telephoneTest evaluateWithObject:aField.text] && aField.text.length != 11) {
+        [self textStateHUD:@"请输入正确的手机号码"];
+        return;
+    }
+    
+    NSString *passRegex = @"^[0-9a-zA-Z_@#$%&*]{4,16}$";
+    NSPredicate *passTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passRegex];
+    
+    if (![passTest evaluateWithObject:pField.text] && pField.text.length < 6) {
+        [self textStateHUD:@"密码为6~16位字符"];
+        return;
+    }
 }
 
 @end

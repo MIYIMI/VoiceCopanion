@@ -103,13 +103,25 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     if (tabBarController.selectedIndex == 2) {
-        NSLog(@"select");
-        [Voice_LoginViewController showInViewController:self];
+        
     }
 }
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"login"] boolValue]) {
+        return YES;
+    }
     
+    BOOL isHaveMyVC = NO;
+    for (UIViewController *vc in [viewController childViewControllers]) {
+        if ([vc isKindOfClass:[Voice_FirstViewController class]]) {
+            isHaveMyVC = YES;
+        }
+    }
+    if (isHaveMyVC) {
+        [Voice_LoginViewController showInViewController:self];
+        return NO;
+    }
     return YES;
 }
 
