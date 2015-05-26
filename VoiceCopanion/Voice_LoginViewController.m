@@ -7,11 +7,14 @@
 //
 
 #import "Voice_LoginViewController.h"
+#import "Voice_RegistViewController.h"
 
-@interface Voice_LoginViewController ()<NavigationContrllerDelegate>
+@interface Voice_LoginViewController ()
 {
     UITextField *aField;
     UITextField *pField;
+    
+    BOOL is_remember;
 }
 
 @end
@@ -31,7 +34,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        is_remember = YES;
     }
     
     return self;
@@ -45,8 +48,8 @@
     
     [self createUI];
     
-    self.navigationController.navDelegate = self;
     [self.navigationController addLeftBarItem];
+    [self.navigationController addRightBarItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +59,19 @@
 
 - (void)leftBarItemClick{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)rightBarItemClick{
+    Voice_RegistViewController *registVC = [[Voice_RegistViewController alloc] initWithNibName:nil bundle:nil];
+    registVC.navigationController = self.navigationController;
+    registVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:registVC animated:YES];
+    
+    [registVC setButtonBlock:^(UIButton *button) {
+        if ([self.delegate respondsToSelector:@selector(didLogin)]) {
+            [self.delegate didLogin];
+        }
+    }];
 }
 
 - (void)createUI{
@@ -76,7 +92,13 @@
     aField.layer.borderWidth = 0.5;
     aField.layer.borderColor = LMH_COLOR_LINE.CGColor;
     aField.textColor = LMH_COLOR_LGTGRAYTEXT;
+    aField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self.view addSubview:aField];
+    
+    NSUserDefaults *userDef = [NSUserDefaults standardUserDefaults];
+    if ([userDef objectForKey:@"username"]) {
+        aField.text = [userDef objectForKey:@"username"];
+    }
     
     UIImageView *pImgView = [[UIImageView alloc] initWithFrame:CGRectMake(SCRW/8, CGRectGetMaxY(aLabel.frame)+20, frameH, frameH)];
     pImgView.image = LOAD_LOCALIMG(@"phone");
@@ -93,7 +115,13 @@
     pField.layer.borderWidth = 0.5;
     pField.layer.borderColor = LMH_COLOR_LINE.CGColor;
     pField.textColor = LMH_COLOR_LGTGRAYTEXT;
+    pField.clearsOnBeginEditing = YES;
+    pField.secureTextEntry = YES;
     [self.view addSubview:pField];
+    
+    if ([userDef objectForKey:@"password"]) {
+        pField.text = [userDef objectForKey:@"password"];
+    }
     
     UIButton *imgBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCRW/8, CGRectGetMaxY(pImgView.frame)+40, frameH, frameH)];
     [imgBtn setTitle:@"N" forState:UIControlStateNormal];
@@ -101,6 +129,7 @@
     [imgBtn setTitleColor:LMH_COLOR_SKIN forState:UIControlStateNormal];
     [imgBtn setTitleColor:LMH_COLOR_ORANGE forState:UIControlStateSelected];
     [imgBtn addTarget:self action:@selector(imgBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    imgBtn.selected = YES;
     [self.view addSubview:imgBtn];
     
     UILabel *rLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(imgBtn.frame)+5, CGRectGetMinY(imgBtn.frame), 80, frameH)];
@@ -129,6 +158,11 @@
 
 - (void)imgBtnClick:(UIButton *)sender{
     sender.selected = !sender.selected;
+    if (sender.selected) {
+        is_remember = YES;
+    }else{
+        is_remember = NO;
+    }
 }
 
 - (void)loginClick{
@@ -140,12 +174,25 @@
         return;
     }
     
-    NSString *passRegex = @"^[0-9a-zA-Z_@#$%&*]{4,16}$";
+    NSString *passRegex = @"^[0-9a-zA-Z_@#$%&*]{6,16}$";
     NSPredicate *passTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", passRegex];
     
-    if (![passTest evaluateWithObject:pField.text] && pField.text.length < 6) {
+    if (![passTest evaluateWithObject:pField.text]) {
         [self textStateHUD:@"密码为6~16位字符"];
         return;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@YES forKey:@"login"];
+    if ([self.delegate respondsToSelector:@selector(didLogin)]) {
+        [self.delegate didLogin];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:aField.text forKey:@"username"];
+    if (is_remember) {
+        [[NSUserDefaults standardUserDefaults] setObject:pField.text forKey:@"password"];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"password"];
     }
 }
 

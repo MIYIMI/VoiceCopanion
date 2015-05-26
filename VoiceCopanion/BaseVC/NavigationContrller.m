@@ -52,15 +52,15 @@ typedef void (^APTransitionBlock)(void);
  *
  *  @return 自定义按钮
  */
-- (UIBarButtonItem *)createBackBarButonItem
+- (UIBarButtonItem *)createLeftBarButonItem
 {
-    UIButton * backBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 27)];
-    [backBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
-    [backBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateHighlighted];
+    UIButton *rightBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 27)];
+    [rightBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+    [rightBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateHighlighted];
     
-    [backBarButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchUpInside];
+    [rightBarButton addTarget:self action:@selector(leftBarItemClick) forControlEvents:UIControlEventTouchUpInside];
     
-    UIBarButtonItem * backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBarButton];
+    UIBarButtonItem * backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarButton];
     backBarButtonItem.style = UIBarButtonItemStylePlain;
     
     return backBarButtonItem;
@@ -68,7 +68,26 @@ typedef void (^APTransitionBlock)(void);
 
 - (void)addLeftBarItem{
     UINavigationItem * navItem = self.topViewController.navigationItem;
-    [navItem setLeftBarButtonItem:[self createBackBarButonItem] animated:YES];
+    [navItem setLeftBarButtonItem:[self createLeftBarButonItem] animated:YES];
+}
+
+- (UIBarButtonItem *)createRightBarButonItem
+{
+    UIButton * backBarButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 27)];
+    [backBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateNormal];
+    [backBarButton setImage:[UIImage imageNamed:@"phone"] forState:UIControlStateHighlighted];
+    
+    [backBarButton addTarget:self action:@selector(rightBarItemClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem * backBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBarButton];
+    backBarButtonItem.style = UIBarButtonItemStylePlain;
+    
+    return backBarButtonItem;
+}
+
+- (void)addRightBarItem{
+    UINavigationItem * navItem = self.topViewController.navigationItem;
+    [navItem setRightBarButtonItem:[self createRightBarButonItem] animated:YES];
 }
 
 #pragma mark - 自定义返回按钮
@@ -78,9 +97,16 @@ typedef void (^APTransitionBlock)(void);
 - (void)leftBarItemClick{
     if ([self.navDelegate respondsToSelector:@selector(leftBarItemClick)]) {
         [self.navDelegate leftBarItemClick];
+    }else{
+        [self popViewControllerAnimated:YES];
     }
 }
 
+- (void)rightBarItemClick{
+    if ([self.navDelegate respondsToSelector:@selector(rightBarItemClick)]) {
+        [self.navDelegate rightBarItemClick];
+    }
+}
 
 #pragma mark - 跳转到下一视图
 /**

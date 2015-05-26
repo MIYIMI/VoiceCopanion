@@ -18,13 +18,14 @@
 
 @optional
 - (void)leftBarItemClick;
+- (void)rightBarItemClick;
 
 @end
 
 @interface NavigationContrller : UINavigationController
 
-//- (void)leftBarItemClick;
 - (void)addLeftBarItem;
+- (void)addRightBarItem;
 
 @property(nonatomic,strong)id <NavigationContrllerDelegate>navDelegate;
 

@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 #import "UIViewController+APSafeTransition.h"
 
-@interface BaseViewController ()<MBProgressHUDDelegate>
+@interface BaseViewController ()<MBProgressHUDDelegate,NavigationContrllerDelegate>
 {
     MBProgressHUD *stateHud;
 }
@@ -59,6 +59,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    self.navigationController.navDelegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    self.navigationController.navDelegate = nil;
 }
 
 - (void)textStateHUD:(NSString *)text

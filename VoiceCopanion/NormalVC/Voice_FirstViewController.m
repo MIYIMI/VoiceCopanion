@@ -124,7 +124,7 @@
 
 - (void)numberClick:(UIButton *)sender{
     if (sender.tag - 1000 < 9) {
-        [numStr appendFormat:@"%zi",sender.tag - 999];
+         [numStr appendFormat:@"%zi",sender.tag - 999];
     }else if(sender.tag - 1000 == 9){
         [numStr appendString:@"﹡"];
     }else if (sender.tag - 1000 == 10){
@@ -180,10 +180,7 @@
         return;
     }
     NSURL *phoneURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",numStr]];
-    if ( !phoneCallWebView ) {
-        phoneCallWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
-    }
-    [phoneCallWebView loadRequest:[NSURLRequest requestWithURL:phoneURL]];
+    [[UIApplication sharedApplication] openURL:phoneURL];
 }
 
 @end

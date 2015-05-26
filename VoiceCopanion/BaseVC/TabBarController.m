@@ -101,14 +101,13 @@
     }
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if (tabBarController.selectedIndex == 2) {
-        
-    }
-}
-
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([viewController isKindOfClass:[NavigationContrller class]]) {
+        [(NavigationContrller *)viewController popToRootViewControllerAnimated:YES];
+    }
+    
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"login"] boolValue]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@NO forKey:@"login"];
         return YES;
     }
     
@@ -126,7 +125,7 @@
 }
 
 - (void)didLogin{
-    self.tabBarController.selectedIndex = 2;
+    [self setSelectedIndex:2];
 }
 
 @end
