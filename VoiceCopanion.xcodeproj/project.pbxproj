@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		956B2CC5D95394CECE5AE9CF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E05833CF1F2083ADD1CFD8AA /* libPods.a */; };
 		B98F87851B14BFA70036C639 /* Voice_RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98F87841B14BFA70036C639 /* Voice_RegistViewController.m */; };
+		B98F87881B161C0D0036C639 /* Voice_ThreedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98F87871B161C0D0036C639 /* Voice_ThreedViewController.m */; };
+		B98F878B1B162E140036C639 /* Voice_ResetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B98F878A1B162E140036C639 /* Voice_ResetViewController.m */; };
 		B9E19EB71AFF829F00E2F43B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E19EB61AFF829F00E2F43B /* main.m */; };
 		B9E19EBA1AFF829F00E2F43B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9E19EB91AFF829F00E2F43B /* AppDelegate.m */; };
 		B9E19EC21AFF829F00E2F43B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E19EC11AFF829F00E2F43B /* Images.xcassets */; };
@@ -46,6 +48,10 @@
 /* Begin PBXFileReference section */
 		B98F87831B14BFA70036C639 /* Voice_RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Voice_RegistViewController.h; path = NormalVC/Voice_RegistViewController.h; sourceTree = "<group>"; };
 		B98F87841B14BFA70036C639 /* Voice_RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Voice_RegistViewController.m; path = NormalVC/Voice_RegistViewController.m; sourceTree = "<group>"; };
+		B98F87861B161C0D0036C639 /* Voice_ThreedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voice_ThreedViewController.h; sourceTree = "<group>"; };
+		B98F87871B161C0D0036C639 /* Voice_ThreedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voice_ThreedViewController.m; sourceTree = "<group>"; };
+		B98F87891B162E140036C639 /* Voice_ResetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Voice_ResetViewController.h; path = NormalVC/Voice_ResetViewController.h; sourceTree = "<group>"; };
+		B98F878A1B162E140036C639 /* Voice_ResetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Voice_ResetViewController.m; path = NormalVC/Voice_ResetViewController.m; sourceTree = "<group>"; };
 		B9E19EB11AFF829F00E2F43B /* VoiceCopanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceCopanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E19EB51AFF829F00E2F43B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9E19EB61AFF829F00E2F43B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -236,6 +242,10 @@
 				B9E4FC251B121B06002BE7D8 /* Voice_LoginViewController.m */,
 				B98F87831B14BFA70036C639 /* Voice_RegistViewController.h */,
 				B98F87841B14BFA70036C639 /* Voice_RegistViewController.m */,
+				B98F87861B161C0D0036C639 /* Voice_ThreedViewController.h */,
+				B98F87871B161C0D0036C639 /* Voice_ThreedViewController.m */,
+				B98F87891B162E140036C639 /* Voice_ResetViewController.h */,
+				B98F878A1B162E140036C639 /* Voice_ResetViewController.m */,
 			);
 			name = NormalVC;
 			sourceTree = "<group>";
@@ -425,7 +435,9 @@
 				B9E19EBA1AFF829F00E2F43B /* AppDelegate.m in Sources */,
 				B9E19EE51AFF836900E2F43B /* BaseTableViewController.m in Sources */,
 				B9E19EE81AFF836900E2F43B /* TabBarController.m in Sources */,
+				B98F87881B161C0D0036C639 /* Voice_ThreedViewController.m in Sources */,
 				B9E19EB71AFF829F00E2F43B /* main.m in Sources */,
+				B98F878B1B162E140036C639 /* Voice_ResetViewController.m in Sources */,
 				B9E4FC261B121B06002BE7D8 /* Voice_LoginViewController.m in Sources */,
 				B9E4FC1D1B11B8ED002BE7D8 /* ChineseString.m in Sources */,
 			);

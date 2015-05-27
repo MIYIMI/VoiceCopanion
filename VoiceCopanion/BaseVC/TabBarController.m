@@ -11,6 +11,7 @@
 #import "Voice_FirstViewController.h"
 #import "Voice_SecondViewController.h"
 #import "Voice_LoginViewController.h"
+#import "Voice_ThreedViewController.h"
 
 @interface TabBarController ()<UITabBarControllerDelegate,LoginDelegate>
 {
@@ -34,7 +35,7 @@
         secondVC.navigationController = secondNav;
         secondVC.tabHiden = NO;
         
-        Voice_FirstViewController *thirdVC = [[Voice_FirstViewController alloc] initWithNibName:nil bundle:nil];
+        Voice_ThreedViewController *thirdVC = [[Voice_ThreedViewController alloc] initWithNibName:nil bundle:nil];
         NavigationContrller *thirdNav = [[NavigationContrller alloc] initWithRootViewController:thirdVC];
         thirdVC.navigationController = thirdNav;
         thirdVC.tabHiden = NO;
